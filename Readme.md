@@ -19,14 +19,14 @@ The Career Development Plan Kanban Board is a simple project management tool des
 
 ## Features 🛠️
 
-### Created
+### Created 🧱
 
 - Favicon for the website to look professsional
 - Static side panel with a logo
 - Interactive task management system via JavaScript
 - Console logging for task tracking
 
-### Updated
+### Updated 🤖
 
 - Responsive design for mobile compatibility
 - Task cards behave like a link, changing color when hovering/ focusing
