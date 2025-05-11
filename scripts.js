@@ -51,3 +51,57 @@ if (task2Status === "done") {
 if (task1Status !== "done" && task2Status !== "done") {
   console.log("No tasks completed, let's get to work!");
 }
+
+// Initializes empty tasks array
+const tasks = [];
+
+// Function to add new tasks
+function addTasks() {
+  const totalTasks = 6;
+  let tasksAdded = 0;
+
+  while (tasksAdded < totalTasks) {
+    // Loop until 6 tasks are added
+    // Prompt user for task details
+    const title = prompt(`Enter task ${tasksAdded + 1} title:`);
+    const description = prompt(`Enter task ${tasksAdded + 1} description:`);
+
+    let status = prompt(
+      `Enter task ${tasksAdded + 1} status (todo, doing, done):`
+    ).toLowerCase();
+    while (status !== "todo" && status !== "doing" && status !== "done") {
+      alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
+      status = prompt(
+        `Enter task ${tasksAdded + 1} status (todo, doing, done):`
+      ).toLowerCase();
+    }
+
+    // Creates new task with incremental ID
+    const newId =
+      tasks.length > 0 ? Math.max(...tasks.map((task) => task.id)) + 1 : 1;
+    const newTask = {
+      id: newId,
+      title,
+      description,
+      status,
+    };
+
+    tasks.push(newTask);
+    tasksAdded++;
+  }
+}
+
+// Functions to filter and return completed tasks
+function getCompletedTasks() {
+  return tasks.filter((task) => task.status === "done");
+}
+
+// Main execution
+addTasks();
+
+// Logs all tasks
+console.log("All tasks:", tasks);
+
+// Logs completed tasks
+const completedTasks = getCompletedTasks();
+console.log("Completed tasks:", completedTasks);
